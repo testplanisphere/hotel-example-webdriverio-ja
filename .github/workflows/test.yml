@@ -1,4 +1,4 @@
-name: Test for Hotel Planisphere
+name: webdriverio
 
 on: [push]
 
