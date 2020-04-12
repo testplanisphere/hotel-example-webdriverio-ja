@@ -1,4 +1,8 @@
-## webdriverio
+## hotel-example-webdriverio
+
+### テスト対象サイト
+
+https://hotel.testplanisphere.dev/ 
 
 ### 概要
 
