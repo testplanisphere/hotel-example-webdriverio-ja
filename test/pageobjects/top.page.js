@@ -6,7 +6,7 @@ class TopPage extends Page {
   get planLink() { return $('=宿泊予約'); }
 
   open() {
-    super.open('');
+    super.open('/');
   }
 
   goToLoginPage() {
