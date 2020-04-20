@@ -1,6 +1,10 @@
 name: webdriverio
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   test:
@@ -24,5 +28,3 @@ jobs:
       run: npm ci
     - name: Run test
       run: npm test
-      env:
-        CI: true
