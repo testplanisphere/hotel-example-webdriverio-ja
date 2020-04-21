@@ -2,7 +2,7 @@ const MyPage = require('../pageobjects/my.page');
 const SignupPage = require('../pageobjects/signup.page');
 const TopPage = require('../pageobjects/top.page');
 
-describe('登録画面テスト', () => {
+describe('会員登録', () => {
   afterEach(() => {
     browser.deleteCookies();
   });
