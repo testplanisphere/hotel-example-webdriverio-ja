@@ -1,3 +1,9 @@
+if (process.env.GITHUB_ACTIONS === 'true') {
+    chromeArgs = ['--headless', '--disable-gpu'];
+} else {
+    chromeArgs = [];
+}
+
 exports.config = {
     //
     // ====================
@@ -58,7 +64,7 @@ exports.config = {
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
         'goog:chromeOptions': {
-            args: ['--headless', '--disable-gpu'],
+            args: chromeArgs,
         },
     }],
     //
