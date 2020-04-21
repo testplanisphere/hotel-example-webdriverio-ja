@@ -3,7 +3,7 @@ const MyPage = require('../pageobjects/my.page');
 const PlansPage = require('../pageobjects/plans.page');
 const TopPage = require('../pageobjects/top.page');
 
-describe('プラン一覧画面テスト', () => {
+describe('プラン一覧', () => {
   afterEach(() => {
     browser.deleteCookies();
   });

@@ -5,7 +5,7 @@ const MyPage = require('../pageobjects/my.page');
 const SignupPage = require('../pageobjects/signup.page');
 const TopPage = require('../pageobjects/top.page');
 
-describe('マイページテスト', () => {
+describe('マイページ', () => {
   afterEach(() => {
     browser.deleteCookies();
   });

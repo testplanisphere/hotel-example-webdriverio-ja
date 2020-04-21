@@ -7,7 +7,7 @@ const ReservePage = require('../pageobjects/reserve.page');
 const RoomPage = require('../pageobjects/room.page');
 const TopPage = require('../pageobjects/top.page');
 
-describe('宿泊予約画面テスト', () => {
+describe('宿泊予約', () => {
   afterEach(() => {
     if (browser.getWindowHandles().length > 1) {
       browser.closeWindow();

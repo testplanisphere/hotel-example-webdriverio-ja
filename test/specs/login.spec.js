@@ -2,7 +2,7 @@ const LoginPage = require('../pageobjects/login.page');
 const MyPage = require('../pageobjects/my.page');
 const TopPage = require('../pageobjects/top.page');
 
-describe('ログイン画面テスト', () => {
+describe('ログイン', () => {
   afterEach(() => {
     browser.deleteCookies();
   });
