@@ -12,7 +12,7 @@ class ConfirmPage extends Page {
   get confirmButton() { return $('button[data-target="#success-modal"]'); }
   get successModal() { return $('#success-modal'); }
   get modalMessage() { return $('#success-modal > div > div > .modal-body'); }
-  get closeButton() { return $('#success-modal > div > div > div > button'); }
+  get closeButton() { return $('#success-modal > div > div > div > button.btn-success'); }
 
   confirm() {
     this.confirmButton.click();
