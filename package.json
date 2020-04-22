@@ -2,9 +2,9 @@
   "name": "hotel-example-webdriverio",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "wdio wdio.conf.js"
+    "test": "wdio wdio.conf.js",
+    "lint": "eslint \"**/*.js\""
   },
   "keywords": [],
   "author": "",
