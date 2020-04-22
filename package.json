@@ -1,13 +1,19 @@
 {
   "name": "hotel-example-webdriverio",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
+  "description": "Example codes for learning test automation.",
   "scripts": {
     "test": "wdio wdio.conf.js",
     "lint": "eslint \"**/*.js\""
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "learn-to-code",
+    "testing",
+    "automation",
+    "test-automation"
+  ],
+  "author": "Takeshi Kishi",
   "license": "MIT",
   "devDependencies": {
     "@wdio/cli": "^6.0.13",
