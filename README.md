@@ -1,39 +1,59 @@
-## hotel-example-webdriverio
+# hotel-example-webdriverio
 
-### テスト対象サイト
+![webdriverio](https://github.com/testplanisphere/hotel-example-webdriverio/workflows/webdriverio/badge.svg)
+
+このプロジェクトはテスト自動化学習のためのサンプルコードです。
+This project is example codes for learning test automation.
+
+### テスト対象 / Test Object
 
 https://hotel.testplanisphere.dev/ 
 
-### 概要
+### 概要 / Overview
 
-#### フレームワーク
+#### プログラミング言語 / Programming Language
 
-[WebdriverIO](https://webdriver.io/)
+* JavaScript
 
-#### プログラミング言語
+#### 自動化フレームワーク / Automation Framework
 
-JavaScript
+* [WebdriverIO](https://webdriver.io/)
 
-#### テスティングフレームワーク
+#### テスティングフレームワーク / Testing Framework
 
-[Mocha](https://mochajs.org/)
+* [Mocha](https://mochajs.org/)
 
-#### ビルドツール
+#### ビルドツール / Build Tool
 
-[npm](https://www.npmjs.com/)
+* [npm](https://www.npmjs.com/)
 
-### 実行方法
+#### 静的解析ツール / Lint Tool
 
-#### 必須環境
+* [ESLint](https://eslint.org/)
 
-* Node.js 12以上
+### 実行方法 / How to Run
+
+#### 必須環境 / Requirements
+
+* Node.js 12
 * Google Chrome
 
-#### macOS/Linux
+#### 依存ライブラリのインストール / Install Dependencies
 
 ```
 npm install
+```
+
+#### テストの実行 / Run Tests
+
+```
 npm run test
+```
+
+#### 静的解析の実行 / Run Lint
+
+```
+npm run lint
 ```
 
 ### 変更履歴
