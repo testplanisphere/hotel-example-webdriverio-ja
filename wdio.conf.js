@@ -1,7 +1,7 @@
+const chromeArgs = []
 if (process.env.GITHUB_ACTIONS === 'true') {
-    chromeArgs = ['--headless', '--disable-gpu'];
-} else {
-    chromeArgs = [];
+    chromeArgs.push('--headless');
+    chromeArgs.push('--disable-gpu');
 }
 
 exports.config = {
