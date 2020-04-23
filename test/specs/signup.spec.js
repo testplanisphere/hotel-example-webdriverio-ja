@@ -3,10 +3,6 @@ const SignupPage = require('../pageobjects/signup.page');
 const TopPage = require('../pageobjects/top.page');
 
 describe('会員登録', () => {
-  afterEach(() => {
-    browser.deleteCookies();
-  });
-
   it('ユーザの新規登録ができること', () => {
     TopPage.open();
     TopPage.goToSignupPage();
