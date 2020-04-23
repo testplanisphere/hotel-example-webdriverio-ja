@@ -27,6 +27,16 @@ describe('宿泊予約', () => {
     expect(ReservePage.reserveDate).toHaveValue(tomorrow);
     expect(ReservePage.reserveTerm).toHaveValue('1');
     expect(ReservePage.headCount).toHaveValue('1');
+    expect(ReservePage.email).not.toBeDisplayed();
+    expect(ReservePage.tel).not.toBeDisplayed();
+    ReservePage.contact.selectByVisibleText('メールでのご連絡');
+    expect(ReservePage.email).toBeDisplayed();
+    expect(ReservePage.tel).not.toBeDisplayed();
+    expect(ReservePage.email).toHaveValue('');
+    ReservePage.contact.selectByVisibleText('電話でのご連絡');
+    expect(ReservePage.email).not.toBeDisplayed();
+    expect(ReservePage.tel).toBeDisplayed();
+    expect(ReservePage.tel).toHaveValue('');
 
     browser.switchToFrame(ReservePage.roomFrame);
     expect(RoomPage.header).toHaveText('スタンダードツイン');
@@ -50,7 +60,15 @@ describe('宿泊予約', () => {
     expect(ReservePage.reserveTerm).toHaveValue('1');
     expect(ReservePage.headCount).toHaveValue('2');
     expect(ReservePage.username).toHaveValue('山田一郎');
+    expect(ReservePage.email).not.toBeDisplayed();
+    expect(ReservePage.tel).not.toBeDisplayed();
+    ReservePage.contact.selectByVisibleText('メールでのご連絡');
+    expect(ReservePage.email).toBeDisplayed();
+    expect(ReservePage.tel).not.toBeDisplayed();
     expect(ReservePage.email).toHaveValue('ichiro@example.com');
+    ReservePage.contact.selectByVisibleText('電話でのご連絡');
+    expect(ReservePage.email).not.toBeDisplayed();
+    expect(ReservePage.tel).toBeDisplayed();
     expect(ReservePage.tel).toHaveValue('01234567891');
 
     browser.switchToFrame(ReservePage.roomFrame);
