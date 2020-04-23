@@ -13,7 +13,6 @@ describe('宿泊予約', () => {
       browser.closeWindow();
     }
     browser.switchWindow(/^宿泊プラン一覧.+$/);
-    browser.deleteCookies();
   });
 
   it('画面表示時の初期値が設定されていること_未ログイン' , () => {

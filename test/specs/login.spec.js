@@ -3,10 +3,6 @@ const MyPage = require('../pageobjects/my.page');
 const TopPage = require('../pageobjects/top.page');
 
 describe('ログイン', () => {
-  afterEach(() => {
-    browser.deleteCookies();
-  });
-
   it('定義済みユーザでログインができること', () => {
     TopPage.open();
     TopPage.goToLoginPage();

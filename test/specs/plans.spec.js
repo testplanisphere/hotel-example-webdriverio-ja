@@ -4,10 +4,6 @@ const PlansPage = require('../pageobjects/plans.page');
 const TopPage = require('../pageobjects/top.page');
 
 describe('プラン一覧', () => {
-  afterEach(() => {
-    browser.deleteCookies();
-  });
-
   it('未ログイン状態でプラン一覧が表示されること', () =>{
     TopPage.open();
     TopPage.goToPlansPage();

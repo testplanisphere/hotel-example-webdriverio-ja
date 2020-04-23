@@ -6,10 +6,6 @@ const SignupPage = require('../pageobjects/signup.page');
 const TopPage = require('../pageobjects/top.page');
 
 describe('マイページ', () => {
-  afterEach(() => {
-    browser.deleteCookies();
-  });
-
   it('定義済みユーザの情報が表示されること_ichiro', () => {
     TopPage.open();
     TopPage.goToLoginPage();
