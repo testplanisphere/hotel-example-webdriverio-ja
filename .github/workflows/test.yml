@@ -5,11 +5,18 @@ on:
     branches:
       - master
   pull_request:
+  schedule:
+    - cron: '10 3 * * *'
 
 jobs:
   test:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+      fail-fast: false
 
     steps:
     - uses: actions/checkout@v2
@@ -19,6 +26,7 @@ jobs:
         node-version: '12.x'
     - name: Cache Node.js modules
       uses: actions/cache@v1
+      if: matrix.os == 'ubuntu-latest'
       with:
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
