@@ -32,7 +32,7 @@ describe('会員登録', () => {
     SignupPage.address.setValue('');
     SignupPage.tel.setValue('');
     SignupPage.gender.selectByVisibleText('回答しない');
-    SignupPage.setBirthday('2000-01-01');
+    SignupPage.setBirthday('');
     SignupPage.setNotification(false);
     SignupPage.submit();
 
