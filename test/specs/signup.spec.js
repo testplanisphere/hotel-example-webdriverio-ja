@@ -6,7 +6,7 @@ describe('会員登録', () => {
   it('ユーザの新規登録ができること', () => {
     TopPage.open();
     TopPage.goToSignupPage();
-    SignupPage.email.setValue('new-user@gmail.com');
+    SignupPage.email.setValue('new-user@example.com');
     SignupPage.password.setValue('password');
     SignupPage.passwordConfirmation.setValue('password');
     SignupPage.username.setValue('新規ユーザ１');
@@ -74,7 +74,7 @@ describe('会員登録', () => {
   it('登録済みのメールアドレスはエラーとなること', () => {
     TopPage.open();
     TopPage.goToSignupPage();
-    SignupPage.email.setValue('new-user@gmail.com');
+    SignupPage.email.setValue('new-user@example.com');
     SignupPage.password.setValue('password');
     SignupPage.passwordConfirmation.setValue('password');
     SignupPage.username.setValue('新規ユーザ１');
@@ -92,7 +92,7 @@ describe('会員登録', () => {
   it('入力パスワードが一致しないとエラーとなること', () => {
     TopPage.open();
     TopPage.goToSignupPage();
-    SignupPage.email.setValue('new-user@gmail.com');
+    SignupPage.email.setValue('new-user@example.com');
     SignupPage.password.setValue('password');
     SignupPage.passwordConfirmation.setValue('123456789');
     SignupPage.rankNormal.click();
