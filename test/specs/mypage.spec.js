@@ -77,7 +77,7 @@ describe('マイページ', () => {
   it('新規登録したユーザの情報が表示されること', () => {
     TopPage.open();
     TopPage.goToSignupPage();
-    SignupPage.email.setValue('new-user@gmail.com');
+    SignupPage.email.setValue('new-user@example.com');
     SignupPage.password.setValue('11111111');
     SignupPage.passwordConfirmation.setValue('11111111');
     SignupPage.username.setValue('田中花子');
@@ -89,7 +89,7 @@ describe('マイページ', () => {
     SignupPage.setNotification(false);
     SignupPage.submit();
 
-    expect(MyPage.email).toHaveText('new-user@gmail.com');
+    expect(MyPage.email).toHaveText('new-user@example.com');
     expect(MyPage.username).toHaveText('田中花子');
     expect(MyPage.rank).toHaveText('一般会員');
     expect(MyPage.address).toHaveText('神奈川県横浜市港区');
@@ -102,7 +102,7 @@ describe('マイページ', () => {
   it('アイコン設定で画像以外のファイルはエラーとなること', () => {
     TopPage.open();
     TopPage.goToLoginPage();
-    LoginPage.email.setValue('new-user@gmail.com');
+    LoginPage.email.setValue('new-user@example.com');
     LoginPage.password.setValue('11111111');
     LoginPage.submit();
     MyPage.iconLink.click();
@@ -115,7 +115,7 @@ describe('マイページ', () => {
   it('アイコン設定で10KBを越えるファイルはエラーとなること', () => {
     TopPage.open();
     TopPage.goToLoginPage();
-    LoginPage.email.setValue('new-user@gmail.com');
+    LoginPage.email.setValue('new-user@example.com');
     LoginPage.password.setValue('11111111');
     LoginPage.submit();
     MyPage.iconLink.click();
@@ -128,7 +128,7 @@ describe('マイページ', () => {
   it('設定したアイコンがマイページに表示されること', () => {
     TopPage.open();
     TopPage.goToLoginPage();
-    LoginPage.email.setValue('new-user@gmail.com');
+    LoginPage.email.setValue('new-user@example.com');
     LoginPage.password.setValue('11111111');
     LoginPage.submit();
     MyPage.iconLink.click();
@@ -146,7 +146,7 @@ describe('マイページ', () => {
   it('新規登録したユーザが削除できること', () => {
     TopPage.open();
     TopPage.goToLoginPage();
-    LoginPage.email.setValue('new-user@gmail.com');
+    LoginPage.email.setValue('new-user@example.com');
     LoginPage.password.setValue('11111111');
     LoginPage.submit();
     MyPage.delete();
