@@ -58,6 +58,21 @@ npm run lint
 
 ### 変更履歴
 
+#### v1.1.0 (2020-04-29)
+
+* [#8](https://github.com/testplanisphere/hotel-example-webdriverio/pull/8) Github Actionsにpull_requestトリガーを追加
+* [#9](https://github.com/testplanisphere/hotel-example-webdriverio/pull/9) テスト名を修正
+* [#11](https://github.com/testplanisphere/hotel-example-webdriverio/pull/11) ConfirmPageのモーダルを閉じるボタンのセレクターを修正
+* [#12](https://github.com/testplanisphere/hotel-example-webdriverio/pull/12) Github Actionsでのみheadlessモードを有効化
+* [#14](https://github.com/testplanisphere/hotel-example-webdriverio/pull/14) Github ActionsでLintを実行するように修正
+* [#15](https://github.com/testplanisphere/hotel-example-webdriverio/pull/15) READMEの記述内容を変更
+* [#18](https://github.com/testplanisphere/hotel-example-webdriverio/pull/18) cookie削除処理をGlobal Hookへ移動
+* [#19](https://github.com/testplanisphere/hotel-example-webdriverio/pull/19) 連絡手段の変更によるinputの表示切り替えテストを追加
+* [#20](https://github.com/testplanisphere/hotel-example-webdriverio/pull/20) webdriverioをv6.1.3へアップデート
+* [#22](https://github.com/testplanisphere/hotel-example-webdriverio/pull/22) Github ActionsにmacOSとWindowsランナーを追加
+* [#25](https://github.com/testplanisphere/hotel-example-webdriverio/pull/25) テストデータのアドレスをexample.comに修正
+* [#26](https://github.com/testplanisphere/hotel-example-webdriverio/pull/26) 日付入力が空の場合のテストを追加
+
 #### v1.0.0 (2020-04-14)
 
 * 正式リリース
