@@ -21,7 +21,7 @@
     "@wdio/mocha-framework": "^6.1.0",
     "@wdio/spec-reporter": "^6.0.16",
     "@wdio/sync": "^6.1.0",
-    "chromedriver": "^80.0.2",
+    "chromedriver": "^83.0.0",
     "eslint": "^6.8.0",
     "eslint-plugin-wdio": "^6.0.12",
     "moment": "^2.24.0",
