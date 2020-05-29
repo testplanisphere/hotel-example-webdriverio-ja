@@ -25,8 +25,8 @@ jobs:
       with:
         node-version: '12.x'
     - name: Cache Node.js modules
-      uses: actions/cache@v1
-      if: matrix.os == 'ubuntu-latest'
+      uses: actions/cache@v2
+      if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
       with:
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
