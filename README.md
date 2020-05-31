@@ -58,6 +58,22 @@ npm run lint
 
 ### 変更履歴
 
+#### v1.2.0 (2020-05-31)
+
+* [#30](https://github.com/testplanisphere/hotel-example-webdriverio/pull/30) chromedriverをアップデート、バージョンの自動設定を有効化
+* [#31](https://github.com/testplanisphere/hotel-example-webdriverio/pull/31) Dependabotを導入
+* [#32](https://github.com/testplanisphere/hotel-example-webdriverio/pull/32) Bump moment from 2.24.0 to 2.26.0
+* [#33](https://github.com/testplanisphere/hotel-example-webdriverio/pull/33) Bump wdio-chromedriver-service from 6.0.2 to 6.0.3
+* [#34](https://github.com/testplanisphere/hotel-example-webdriverio/pull/34) Bump @wdio/spec-reporter from 6.0.16 to 6.1.14
+* [#35](https://github.com/testplanisphere/hotel-example-webdriverio/pull/35) Bump @wdio/sync from 6.1.0 to 6.1.14
+* [#36](https://github.com/testplanisphere/hotel-example-webdriverio/pull/36) Bump eslint from 6.8.0 to 7.1.0
+* [#38](https://github.com/testplanisphere/hotel-example-webdriverio/pull/38) Dependabotの設定を変更
+* [#39](https://github.com/testplanisphere/hotel-example-webdriverio/pull/39) Bump @wdio/cli from 6.1.3 to 6.1.15
+* [#40](https://github.com/testplanisphere/hotel-example-webdriverio/pull/40) Bump @wdio/local-runner from 6.1.3 to 6.1.14
+* [#41](https://github.com/testplanisphere/hotel-example-webdriverio/pull/41) Bump @wdio/mocha-framework from 6.1.0 to 6.1.14
+* [#43](https://github.com/testplanisphere/hotel-example-webdriverio/pull/43) Github actions/cacheをv2にアップデート
+* [#45](https://github.com/testplanisphere/hotel-example-webdriverio/pull/45) package-lock.jsonを修正
+
 #### v1.1.0 (2020-04-29)
 
 * [#8](https://github.com/testplanisphere/hotel-example-webdriverio/pull/8) Github Actionsにpull_requestトリガーを追加
