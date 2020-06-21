@@ -20,6 +20,7 @@ describe('宿泊予約', () => {
     TopPage.goToPlansPage();
     PlansPage.openPlanByTitle('お得な特典付きプラン');
     browser.switchWindow(/^宿泊予約.+$/);
+    ReservePage.submitButton.waitForClickable();
 
     const tomorrow = moment().add(1, 'days').format('YYYY/MM/DD');
 
@@ -52,6 +53,7 @@ describe('宿泊予約', () => {
     MyPage.goToPlansPage();
     PlansPage.openPlanByTitle('プレミアムプラン');
     browser.switchWindow(/^宿泊予約.+$/);
+    ReservePage.submitButton.waitForClickable();
 
     const tomorrow = moment().add(1, 'days').format('YYYY/MM/DD');
 
@@ -81,6 +83,7 @@ describe('宿泊予約', () => {
     TopPage.goToPlansPage();
     PlansPage.openPlanByTitle('お得な特典付きプラン');
     browser.switchWindow(/^宿泊予約.+$/);
+    ReservePage.submitButton.waitForClickable();
 
     ReservePage.setReserveDate('');
     ReservePage.reserveTerm.setValue('');
@@ -97,6 +100,7 @@ describe('宿泊予約', () => {
     TopPage.goToPlansPage();
     PlansPage.openPlanByTitle('お得な特典付きプラン');
     browser.switchWindow(/^宿泊予約.+$/);
+    ReservePage.submitButton.waitForClickable();
 
     const today = moment().format('YYYY/MM/DD');
 
@@ -115,6 +119,7 @@ describe('宿泊予約', () => {
     TopPage.goToPlansPage();
     PlansPage.openPlanByTitle('お得な特典付きプラン');
     browser.switchWindow(/^宿泊予約.+$/);
+    ReservePage.submitButton.waitForClickable();
 
     const after90 = moment().add(91, 'days').format('YYYY/MM/DD');
 
@@ -133,6 +138,7 @@ describe('宿泊予約', () => {
     TopPage.goToPlansPage();
     PlansPage.openPlanByTitle('お得な特典付きプラン');
     browser.switchWindow(/^宿泊予約.+$/);
+    ReservePage.submitButton.waitForClickable();
 
     ReservePage.setReserveDate('12/3//345');
     ReservePage.reserveTerm.setValue('a');  // 入力できない
@@ -149,6 +155,7 @@ describe('宿泊予約', () => {
     TopPage.goToPlansPage();
     PlansPage.openPlanByTitle('お得な特典付きプラン');
     browser.switchWindow(/^宿泊予約.+$/);
+    ReservePage.submitButton.waitForClickable();
 
     ReservePage.username.setValue('');
     ReservePage.contact.selectByVisibleText('メールでのご連絡');
@@ -164,6 +171,7 @@ describe('宿泊予約', () => {
     TopPage.goToPlansPage();
     PlansPage.openPlanByTitle('お得な特典付きプラン');
     browser.switchWindow(/^宿泊予約.+$/);
+    ReservePage.submitButton.waitForClickable();
 
     ReservePage.username.setValue('');
     ReservePage.contact.selectByVisibleText('電話でのご連絡');
@@ -179,6 +187,7 @@ describe('宿泊予約', () => {
     TopPage.goToPlansPage();
     PlansPage.openPlanByTitle('お得な特典付きプラン');
     browser.switchWindow(/^宿泊予約.+$/);
+    ReservePage.submitButton.waitForClickable();
 
     const expectedStart = moment().add(1, 'days');
     const expectedEnd = moment().add(2, 'days');
@@ -218,6 +227,7 @@ describe('宿泊予約', () => {
     MyPage.goToPlansPage();
     PlansPage.openPlanByTitle('プレミアムプラン');
     browser.switchWindow(/^宿泊予約.+$/);
+    ReservePage.submitButton.waitForClickable();
 
     const expectedStart = moment().add(90, 'days');
     const expectedEnd = moment().add(92, 'days');
