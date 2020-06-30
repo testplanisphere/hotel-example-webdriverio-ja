@@ -58,6 +58,16 @@ npm run lint
 
 ### 変更履歴
 
+#### v2020.6.0 (2020-06-30)
+
+* [#47](https://github.com/testplanisphere/hotel-example-webdriverio/pull/47) Bump @wdio/local-runner from 6.1.14 to 6.1.16
+* [#48](https://github.com/testplanisphere/hotel-example-webdriverio/pull/48) Bump @wdio/cli from 6.1.15 to 6.1.16
+* [#49](https://github.com/testplanisphere/hotel-example-webdriverio/pull/49) Bump eslint from 7.1.0 to 7.2.0
+* [#57](https://github.com/testplanisphere/hotel-example-webdriverio/pull/57) wait for Ajax complete
+* [#59](https://github.com/testplanisphere/hotel-example-webdriverio/pull/59) Bump moment from 2.26.0 to 2.27.0
+* [#62](https://github.com/testplanisphere/hotel-example-webdriverio/pull/62) Bump eslint from 7.2.0 to 7.3.1
+* [#65](https://github.com/testplanisphere/hotel-example-webdriverio/pull/65) Bump @wdio and others from 6.1.16 to 6.1.22
+
 #### v1.2.0 (2020-05-31)
 
 * [#30](https://github.com/testplanisphere/hotel-example-webdriverio/pull/30) chromedriverをアップデート、バージョンの自動設定を有効化
