@@ -58,6 +58,10 @@ npm run lint
 
 ### 変更履歴
 
+#### v2020.6.1 (2020-07-21)
+
+* [#80](https://github.com/testplanisphere/hotel-example-webdriverio/pull/80) *Security* Bump lodash from 4.17.15 to 4.17.19
+
 #### v2020.6.0 (2020-06-30)
 
 * [#47](https://github.com/testplanisphere/hotel-example-webdriverio/pull/47) Bump @wdio/local-runner from 6.1.14 to 6.1.16
