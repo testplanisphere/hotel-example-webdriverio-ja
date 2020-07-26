@@ -57,6 +57,15 @@ npm run lint
 
 ### 変更履歴
 
+#### v2020.7.0 (2020-07-26)
+
+* [#90](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/90) Bump eslint from 7.3.1 to 7.5.0
+* [#94](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/94) Bump chromedriver from 83.0.0 to 84.0.1
+* [#97](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/97) bump wdio to 6.3.5
+* [#98](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/98) Update Dependabot config file
+* [#99](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/99) update actions and dependabot
+* [#101](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/101) move to ja site
+
 #### v2020.6.1 (2020-07-21)
 
 * [#80](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/80) *Security* Bump lodash from 4.17.15 to 4.17.19
