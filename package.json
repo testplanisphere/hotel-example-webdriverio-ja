@@ -1,6 +1,6 @@
 {
   "name": "hotel-example-webdriverio-ja",
-  "version": "2020.6.1",
+  "version": "2020.7.0",
   "private": true,
   "description": "Example codes for learning test automation.",
   "scripts": {
