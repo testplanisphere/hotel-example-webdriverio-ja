@@ -25,6 +25,6 @@
     "eslint": "^7.5.0",
     "eslint-plugin-wdio": "^6.0.12",
     "moment": "^2.27.0",
-    "wdio-chromedriver-service": "^6.0.3"
+    "wdio-chromedriver-service": "^6.0.4"
   }
 }
