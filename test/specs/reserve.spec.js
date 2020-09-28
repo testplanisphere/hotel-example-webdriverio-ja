@@ -1,4 +1,4 @@
-const moment = require('moment');
+const DateTime = require('luxon').DateTime;
 const ConfirmPage = require('../pageobjects/confirm.page');
 const LoginPage = require('../pageobjects/login.page');
 const MyPage = require('../pageobjects/my.page');
@@ -22,7 +22,7 @@ describe('宿泊予約', () => {
     browser.switchWindow(/^宿泊予約.+$/);
     ReservePage.submitButton.waitForClickable();
 
-    const tomorrow = moment().add(1, 'days').format('YYYY/MM/DD');
+    const tomorrow = DateTime.local().plus({ days: 1 }).toFormat('yyyy/LL/dd');
 
     expect(ReservePage.planName).toHaveText('お得な特典付きプラン');
     expect(ReservePage.reserveDate).toHaveValue(tomorrow);
@@ -55,7 +55,7 @@ describe('宿泊予約', () => {
     browser.switchWindow(/^宿泊予約.+$/);
     ReservePage.submitButton.waitForClickable();
 
-    const tomorrow = moment().add(1, 'days').format('YYYY/MM/DD');
+    const tomorrow = DateTime.local().plus({ days: 1 }).toFormat('yyyy/LL/dd');
 
     expect(ReservePage.planName).toHaveText('プレミアムプラン');
     expect(ReservePage.reserveDate).toHaveValue(tomorrow);
@@ -102,7 +102,7 @@ describe('宿泊予約', () => {
     browser.switchWindow(/^宿泊予約.+$/);
     ReservePage.submitButton.waitForClickable();
 
-    const today = moment().format('YYYY/MM/DD');
+    const today = DateTime.local().toFormat('yyyy/LL/dd');
 
     ReservePage.setReserveDate(today);
     ReservePage.reserveTerm.setValue('0');
@@ -121,7 +121,7 @@ describe('宿泊予約', () => {
     browser.switchWindow(/^宿泊予約.+$/);
     ReservePage.submitButton.waitForClickable();
 
-    const after90 = moment().add(91, 'days').format('YYYY/MM/DD');
+    const after90 = DateTime.local().plus({ days: 91 }).toFormat('yyyy/LL/dd');
 
     ReservePage.setReserveDate(after90);
     ReservePage.reserveTerm.setValue('10');
@@ -189,15 +189,15 @@ describe('宿泊予約', () => {
     browser.switchWindow(/^宿泊予約.+$/);
     ReservePage.submitButton.waitForClickable();
 
-    const expectedStart = moment().add(1, 'days');
-    const expectedEnd = moment().add(2, 'days');
+    const expectedStart = DateTime.local().plus({ days: 1 });
+    const expectedEnd = DateTime.local().plus({ days: 2 });
     let expectedTotalBill;
-    if (expectedStart.day() === 0 || expectedStart.day() === 6) {
+    if (expectedStart.weekday === 6 || expectedStart.weekday === 7) {
       expectedTotalBill = '合計 8,750円（税込み）';
     } else {
       expectedTotalBill = '合計 7,000円（税込み）';
     }
-    const expectedTerm = `${expectedStart.format('YYYY年M月D日')} 〜 ${expectedEnd.format('YYYY年M月D日')} 1泊`
+    const expectedTerm = `${expectedStart.toFormat('yyyy年L月d日')} 〜 ${expectedEnd.toFormat('yyyy年L月d日')} 1泊`
 
     ReservePage.username.setValue('テスト太郎');
     ReservePage.contact.selectByVisibleText('希望しない');
@@ -229,17 +229,17 @@ describe('宿泊予約', () => {
     browser.switchWindow(/^宿泊予約.+$/);
     ReservePage.submitButton.waitForClickable();
 
-    const expectedStart = moment().add(90, 'days');
-    const expectedEnd = moment().add(92, 'days');
+    const expectedStart = DateTime.local().plus({ days: 90 });
+    const expectedEnd = DateTime.local().plus({ days: 92 });
     let expectedTotalBill;
-    if (expectedStart.day() === 6) {
+    if (expectedStart.weekday === 6) {
       expectedTotalBill = '合計 112,000円（税込み）';
-    } else if (expectedStart.day() === 0 || expectedStart.day() === 5) {
+    } else if (expectedStart.weekday === 5 || expectedStart.weekday === 7) {
       expectedTotalBill = '合計 102,000円（税込み）';
     } else {
       expectedTotalBill = '合計 92,000円（税込み）';
     }
-    const expectedTerm = `${expectedStart.format('YYYY年M月D日')} 〜 ${expectedEnd.format('YYYY年M月D日')} 2泊`
+    const expectedTerm = `${expectedStart.toFormat('yyyy年L月d日')} 〜 ${expectedEnd.toFormat('yyyy年L月d日')} 2泊`
 
     ReservePage.reserveTerm.setValue('2');
     ReservePage.headCount.setValue('4');
@@ -248,7 +248,7 @@ describe('宿泊予約', () => {
     ReservePage.setSightseeingPlan(false);
     ReservePage.contact.selectByVisibleText('メールでのご連絡');
     ReservePage.comment.setValue('あああ\n\nいいいいいいい\nうう');
-    ReservePage.reserveDate.setValue(expectedStart.format('YYYY/MM/DD'));
+    ReservePage.reserveDate.setValue(expectedStart.toFormat('yyyy/LL/dd'));
     ReservePage.submit();
 
     expect(ConfirmPage.totalBill).toHaveText(expectedTotalBill);
