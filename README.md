@@ -57,6 +57,13 @@ npm run lint
 
 ### 変更履歴
 
+#### v2020.9.0 (2020-09-30)
+
+* [#128](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/128) Bump chromedriver from 85.0.0 to 85.0.1 
+* [#138](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/138) Bump wdio from 6.4.6 to 6.5.2
+* [#139](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/139) migrate moment to luxon
+* [#141](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/141) Bump eslint from 7.8.1 to 7.10.0
+
 #### v2020.8.0 (2020-09-04)
 
 * [#117](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/117) Bump @wdio from 6.3.5 to 6.4.5
