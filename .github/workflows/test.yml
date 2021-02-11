@@ -3,7 +3,7 @@ name: webdriverio-ja
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
   schedule:
     - cron: '10 3 * * *'
