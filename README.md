@@ -1,6 +1,6 @@
 # hotel-example-webdriverio-ja
 
-![webdriverio-ja](https://github.com/testplanisphere/hotel-example-webdriverio-ja/workflows/webdriverio-ja/badge.svg)
+[![webdriverio-ja](https://github.com/testplanisphere/hotel-example-webdriverio-ja/actions/workflows/test.yml/badge.svg)](https://github.com/testplanisphere/hotel-example-webdriverio-ja/actions/workflows/test.yml)
 
 このプロジェクトはテスト自動化学習のためのサンプルコードです。
 
@@ -56,6 +56,23 @@ npm run lint
 ```
 
 ### 変更履歴
+
+#### v2021.2.0 (2021-03-06)
+
+* [#235](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/235) Update branch name
+* [#236](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/236) Update node 14
+* [#237](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/237) Bump wdio from 6.5 to 6.12
+* [#239](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/239) Bump wdio from 6 to 7
+* [#238](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/238) Bump chromedriver from 85.0.1 to 88.0.0
+* [#245](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/245) Bump wdio from 7.0.1 to 7.0.2
+* [#246](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/246) Bump eslint-plugin-wdio from 6.6.0 to 7.0.0 
+* [#247](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/247) Bump wdio from 7.0.2 to 7.0.3
+* [#248](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/248) Bump luxon from 1.25.0 to 1.26.0
+* [#249](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/249) Bump eslint from 7.19.0 to 7.20.0
+* [#266](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/266) Bump wdio from 7.0.3 to 7.0.8 
+* [#267](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/267) Bump wdio-chromedriver-service from 6.0.4 to 7.0.0
+* [#268](https://github.com/testplanisphere/hotel-example-webdriverio-ja/pull/268) Bump eslint from 7.20.0 to 7.21.0
+
 
 #### v2020.9.0 (2020-09-30)
 
