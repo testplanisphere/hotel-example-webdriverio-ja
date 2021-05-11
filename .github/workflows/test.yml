@@ -25,7 +25,7 @@ jobs:
       with:
         node-version: '14'
     - name: Cache Node.js modules
-      uses: actions/cache@v2
+      uses: actions/cache@v2.1.5
       if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
       with:
         path: ~/.npm
