@@ -34,7 +34,7 @@ https://hotel.testplanisphere.dev/ja/
 
 #### 必須環境
 
-* Node.js 12
+* Node.js LTS
 * Google Chrome
 
 #### 依存ライブラリのインストール
