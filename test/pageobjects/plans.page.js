@@ -13,7 +13,7 @@ class PlansPage extends Page {
   async openPlanByTitle(title) {
     await (await this.loading).waitForExist({reverse: true});
     // this.plans.find((elm) => elm.$('.card-title').getText() === title).$('<a>').click();
-    for (const plan of (await this.plans)) {
+    for (const plan of await this.plans) {
       if (await (await plan.$('.card-title')).getText() === title) {
         await (await plan.$('<a>')).click();
         break;

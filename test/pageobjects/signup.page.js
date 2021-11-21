@@ -25,7 +25,7 @@ class SignupPage extends Page {
   async setBirthday(birthday) {
     await browser.execute((input, value) => {
       input.value = value;
-    }, this.birthday, birthday);
+    }, await this.birthday, birthday);
   }
 
   async setNotification(checked) {

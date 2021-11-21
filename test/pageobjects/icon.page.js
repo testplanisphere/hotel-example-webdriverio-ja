@@ -14,13 +14,13 @@ class IconPage extends Page {
   async setZoom(value) {
     await browser.execute((input, value) => {
       input.value = value;
-    }, this.zoom, value);
+    }, await this.zoom, value);
   }
 
   async setColor(value) {
     await browser.execute((input, value) => {
       input.value = value;
-    }, this.color, value);
+    }, await this.color, value);
   }
 }
 

@@ -140,7 +140,7 @@ describe('マイページ', () => {
 
     await expect(MyPage.iconImage).toExist();
     // await expect(MyPage.iconImage).toHaveAttribute('width', '70');
-    await expect(MyPage.iconImage.getCSSProperty('backgroundColor').value).toBe('rgba(0,0,0,1)');
+    await expect((await MyPage.iconImage.getCSSProperty('backgroundColor')).value).toBe('rgba(0,0,0,1)');
   });
 
   it('新規登録したユーザが削除できること', async () => {
@@ -151,10 +151,10 @@ describe('マイページ', () => {
     await LoginPage.submit();
     await MyPage.delete();
 
-    await expect(browser.getAlertText()).toBe('退会すると全ての情報が削除されます。\nよろしいですか？');
+    await expect(await browser.getAlertText()).toBe('退会すると全ての情報が削除されます。\nよろしいですか？');
     await browser.acceptAlert();
     await browser.pause(1000);
-    await expect(browser.getAlertText()).toBe('退会処理を完了しました。ご利用ありがとうございました。');
+    await expect(await browser.getAlertText()).toBe('退会処理を完了しました。ご利用ありがとうございました。');
     await browser.acceptAlert();
     await expect(browser).toHaveUrl('index.html', {containing: true});
   });
