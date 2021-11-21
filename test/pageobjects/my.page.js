@@ -16,12 +16,12 @@ class MyPage extends Page {
   get iconImage() { return $('#icon-holder > img'); }
   get deleteButton() { return $('#delete-form > button'); }
 
-  goToPlansPage() {
-    this.planLink.click();
+  async goToPlansPage() {
+    await (await this.planLink).click();
   }
 
-  delete() {
-    this.deleteButton.click();
+  async delete() {
+    await (await this.deleteButton).click();
   }
 }
 

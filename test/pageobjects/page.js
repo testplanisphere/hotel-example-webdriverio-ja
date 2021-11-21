@@ -1,5 +1,5 @@
 module.exports = class Page {
-  open (path) {
-      browser.url(path)
+  async open(path) {
+      await browser.url(path);
   }
 }

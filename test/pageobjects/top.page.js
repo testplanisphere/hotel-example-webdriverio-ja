@@ -5,20 +5,20 @@ class TopPage extends Page {
   get signupLink() { return $('=会員登録'); }
   get planLink() { return $('=宿泊予約'); }
 
-  open() {
-    super.open('/ja/');
+  async open() {
+    await super.open('/ja/');
   }
 
-  goToLoginPage() {
-    this.loginLink.click();
+  async goToLoginPage() {
+    await (await this.loginLink).click();
   }
 
-  goToSignupPage() {
-    this.signupLink.click();
+  async goToSignupPage() {
+    await (await this.signupLink).click();
   }
 
-  goToPlansPage() {
-    this.planLink.click();
+  async goToPlansPage() {
+    await (await this.planLink).click();
   }
 }
 

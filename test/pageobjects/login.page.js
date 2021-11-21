@@ -7,8 +7,8 @@ class LoginPage extends Page {
   get emailMessage() { return $('#email-message'); }
   get passwordMessage() { return $('#password-message'); }
 
-  submit() {
-    this.submitButton.click();
+  async submit() {
+    await (await this.submitButton).click();
   }
 }
 
