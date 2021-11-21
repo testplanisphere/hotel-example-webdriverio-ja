@@ -23,31 +23,31 @@ class ReservePage extends Page {
   get emailMessage() { return $('#email ~ .invalid-feedback'); }
   get telMessage() { return $('#tel ~ .invalid-feedback'); }
 
-  setReserveDate(value) {
-    this.reserveDate.setValue(value);
-    this.datePickerClose.click();
+  async setReserveDate(value) {
+    await (await this.reserveDate).setValue(value);
+    await (await this.datePickerClose).click();
   }
 
-  setBreakfastPlan(checked) {
-    if (this.breakfastPlan.isSelected() !== checked) {
-      this.breakfastPlan.click();
+  async setBreakfastPlan(checked) {
+    if (await (await this.breakfastPlan).isSelected() !== checked) {
+      await (await this.breakfastPlan).click();
     }
   }
 
-  setEarlyCheckInPlan(checked) {
-    if (this.earlyCheckInPlan.isSelected() !== checked) {
-      this.earlyCheckInPlan.click();
+  async setEarlyCheckInPlan(checked) {
+    if (await (await this.earlyCheckInPlan).isSelected() !== checked) {
+      await (await this.earlyCheckInPlan).click();
     }
   }
 
-  setSightseeingPlan(checked) {
-    if (this.sightseeingPlan.isSelected() !== checked) {
-      this.sightseeingPlan.click();
+  async setSightseeingPlan(checked) {
+    if (await (await this.sightseeingPlan).isSelected() !== checked) {
+      await (await this.sightseeingPlan).click();
     }
   }
 
-  submit() {
-    this.submitButton.click();
+  async submit() {
+    await (await this.submitButton).click();
   }
 }
 

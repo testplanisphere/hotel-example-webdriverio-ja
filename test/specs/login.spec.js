@@ -3,35 +3,35 @@ const MyPage = require('../pageobjects/my.page');
 const TopPage = require('../pageobjects/top.page');
 
 describe('ログイン', () => {
-  it('定義済みユーザでログインができること', () => {
-    TopPage.open();
-    TopPage.goToLoginPage();
-    LoginPage.email.setValue('ichiro@example.com');
-    LoginPage.password.setValue('password');
-    LoginPage.submit();
+  it('定義済みユーザでログインができること', async () => {
+    await TopPage.open();
+    await TopPage.goToLoginPage();
+    await LoginPage.email.setValue('ichiro@example.com');
+    await LoginPage.password.setValue('password');
+    await LoginPage.submit();
 
-    expect(MyPage.header).toHaveText('マイページ');
+    await expect(MyPage.header).toHaveText('マイページ');
   });
 
-  it('未入力でエラーとなること', () => {
-    TopPage.open();
-    TopPage.goToLoginPage();
-    LoginPage.email.setValue('');
-    LoginPage.password.setValue('');
-    LoginPage.submit();
+  it('未入力でエラーとなること', async () => {
+    await TopPage.open();
+    await TopPage.goToLoginPage();
+    await LoginPage.email.setValue('');
+    await LoginPage.password.setValue('');
+    await LoginPage.submit();
 
-    expect(LoginPage.emailMessage).toHaveText('このフィールドを入力してください。');
-    expect(LoginPage.passwordMessage).toHaveText('このフィールドを入力してください。');
+    await expect(LoginPage.emailMessage).toHaveText('このフィールドを入力してください。');
+    await expect(LoginPage.passwordMessage).toHaveText('このフィールドを入力してください。');
   });
 
-  it('未登録のユーザでエラーとなること', () => {
-    TopPage.open();
-    TopPage.goToLoginPage();
-    LoginPage.email.setValue('error@example.com');
-    LoginPage.password.setValue('error');
-    LoginPage.submit();
+  it('未登録のユーザでエラーとなること', async () => {
+    await TopPage.open();
+    await TopPage.goToLoginPage();
+    await LoginPage.email.setValue('error@example.com');
+    await LoginPage.password.setValue('error');
+    await LoginPage.submit();
 
-    expect(LoginPage.emailMessage).toHaveText('メールアドレスまたはパスワードが違います。');
-    expect(LoginPage.passwordMessage).toHaveText('メールアドレスまたはパスワードが違います。');
+    await expect(LoginPage.emailMessage).toHaveText('メールアドレスまたはパスワードが違います。');
+    await expect(LoginPage.passwordMessage).toHaveText('メールアドレスまたはパスワードが違います。');
   });
 });

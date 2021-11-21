@@ -8,186 +8,186 @@ const RoomPage = require('../pageobjects/room.page');
 const TopPage = require('../pageobjects/top.page');
 
 describe('宿泊予約', () => {
-  afterEach(() => {
-    if (browser.getWindowHandles().length > 1) {
-      browser.closeWindow();
+  afterEach(async () => {
+    if ((await browser.getWindowHandles()).length > 1) {
+      await browser.closeWindow();
     }
-    browser.switchWindow(/^宿泊プラン一覧.+$/);
+    await browser.switchWindow(/^宿泊プラン一覧.+$/);
   });
 
-  it('画面表示時の初期値が設定されていること_未ログイン' , () => {
-    TopPage.open();
-    TopPage.goToPlansPage();
-    PlansPage.openPlanByTitle('お得な特典付きプラン');
-    browser.switchWindow(/^宿泊予約.+$/);
-    ReservePage.submitButton.waitForClickable();
+  it('画面表示時の初期値が設定されていること_未ログイン' , async () => {
+    await TopPage.open();
+    await TopPage.goToPlansPage();
+    await PlansPage.openPlanByTitle('お得な特典付きプラン');
+    await browser.switchWindow(/^宿泊予約.+$/);
+    await ReservePage.submitButton.waitForClickable();
 
     const tomorrow = DateTime.local().plus({ days: 1 }).toFormat('yyyy/LL/dd');
 
-    expect(ReservePage.planName).toHaveText('お得な特典付きプラン');
-    expect(ReservePage.reserveDate).toHaveValue(tomorrow);
-    expect(ReservePage.reserveTerm).toHaveValue('1');
-    expect(ReservePage.headCount).toHaveValue('1');
-    expect(ReservePage.email).not.toBeDisplayed();
-    expect(ReservePage.tel).not.toBeDisplayed();
-    ReservePage.contact.selectByVisibleText('メールでのご連絡');
-    expect(ReservePage.email).toBeDisplayed();
-    expect(ReservePage.tel).not.toBeDisplayed();
-    expect(ReservePage.email).toHaveValue('');
-    ReservePage.contact.selectByVisibleText('電話でのご連絡');
-    expect(ReservePage.email).not.toBeDisplayed();
-    expect(ReservePage.tel).toBeDisplayed();
-    expect(ReservePage.tel).toHaveValue('');
+    await expect(ReservePage.planName).toHaveText('お得な特典付きプラン');
+    await expect(ReservePage.reserveDate).toHaveValue(tomorrow);
+    await expect(ReservePage.reserveTerm).toHaveValue('1');
+    await expect(ReservePage.headCount).toHaveValue('1');
+    await expect(ReservePage.email).not.toBeDisplayed();
+    await expect(ReservePage.tel).not.toBeDisplayed();
+    await ReservePage.contact.selectByVisibleText('メールでのご連絡');
+    await expect(ReservePage.email).toBeDisplayed();
+    await expect(ReservePage.tel).not.toBeDisplayed();
+    await expect(ReservePage.email).toHaveValue('');
+    await ReservePage.contact.selectByVisibleText('電話でのご連絡');
+    await expect(ReservePage.email).not.toBeDisplayed();
+    await expect(ReservePage.tel).toBeDisplayed();
+    await expect(ReservePage.tel).toHaveValue('');
 
-    browser.switchToFrame(ReservePage.roomFrame);
-    expect(RoomPage.header).toHaveText('スタンダードツイン');
-    browser.switchToFrame(null);
+    await browser.switchToFrame(await ReservePage.roomFrame);
+    await expect(RoomPage.header).toHaveText('スタンダードツイン');
+    await browser.switchToFrame(null);
   });
 
-  it('画面表示時の初期値が設定されていること_ログイン済み' , () => {
-    TopPage.open();
-    TopPage.goToLoginPage();
-    LoginPage.email.setValue('ichiro@example.com');
-    LoginPage.password.setValue('password');
-    LoginPage.submit();
-    MyPage.goToPlansPage();
-    PlansPage.openPlanByTitle('プレミアムプラン');
-    browser.switchWindow(/^宿泊予約.+$/);
-    ReservePage.submitButton.waitForClickable();
+  it('画面表示時の初期値が設定されていること_ログイン済み' , async () => {
+    await TopPage.open();
+    await TopPage.goToLoginPage();
+    await LoginPage.email.setValue('ichiro@example.com');
+    await LoginPage.password.setValue('password');
+    await LoginPage.submit();
+    await MyPage.goToPlansPage();
+    await PlansPage.openPlanByTitle('プレミアムプラン');
+    await browser.switchWindow(/^宿泊予約.+$/);
+    await ReservePage.submitButton.waitForClickable();
 
     const tomorrow = DateTime.local().plus({ days: 1 }).toFormat('yyyy/LL/dd');
 
-    expect(ReservePage.planName).toHaveText('プレミアムプラン');
-    expect(ReservePage.reserveDate).toHaveValue(tomorrow);
-    expect(ReservePage.reserveTerm).toHaveValue('1');
-    expect(ReservePage.headCount).toHaveValue('2');
-    expect(ReservePage.username).toHaveValue('山田一郎');
-    expect(ReservePage.email).not.toBeDisplayed();
-    expect(ReservePage.tel).not.toBeDisplayed();
-    ReservePage.contact.selectByVisibleText('メールでのご連絡');
-    expect(ReservePage.email).toBeDisplayed();
-    expect(ReservePage.tel).not.toBeDisplayed();
-    expect(ReservePage.email).toHaveValue('ichiro@example.com');
-    ReservePage.contact.selectByVisibleText('電話でのご連絡');
-    expect(ReservePage.email).not.toBeDisplayed();
-    expect(ReservePage.tel).toBeDisplayed();
-    expect(ReservePage.tel).toHaveValue('01234567891');
+    await expect(ReservePage.planName).toHaveText('プレミアムプラン');
+    await expect(ReservePage.reserveDate).toHaveValue(tomorrow);
+    await expect(ReservePage.reserveTerm).toHaveValue('1');
+    await expect(ReservePage.headCount).toHaveValue('2');
+    await expect(ReservePage.username).toHaveValue('山田一郎');
+    await expect(ReservePage.email).not.toBeDisplayed();
+    await expect(ReservePage.tel).not.toBeDisplayed();
+    await ReservePage.contact.selectByVisibleText('メールでのご連絡');
+    await expect(ReservePage.email).toBeDisplayed();
+    await expect(ReservePage.tel).not.toBeDisplayed();
+    await expect(ReservePage.email).toHaveValue('ichiro@example.com');
+    await ReservePage.contact.selectByVisibleText('電話でのご連絡');
+    await expect(ReservePage.email).not.toBeDisplayed();
+    await expect(ReservePage.tel).toBeDisplayed();
+    await expect(ReservePage.tel).toHaveValue('01234567891');
 
-    browser.switchToFrame(ReservePage.roomFrame);
-    expect(RoomPage.header).toHaveText('プレミアムツイン');
-    browser.switchToFrame(null);
+    await browser.switchToFrame(await ReservePage.roomFrame);
+    await expect(RoomPage.header).toHaveText('プレミアムツイン');
+    await browser.switchToFrame(null);
   });
 
-  it('入力値が空白でエラーとなること' , () => {
-    TopPage.open();
-    TopPage.goToPlansPage();
-    PlansPage.openPlanByTitle('お得な特典付きプラン');
-    browser.switchWindow(/^宿泊予約.+$/);
-    ReservePage.submitButton.waitForClickable();
+  it('入力値が空白でエラーとなること' , async () => {
+    await TopPage.open();
+    await TopPage.goToPlansPage();
+    await PlansPage.openPlanByTitle('お得な特典付きプラン');
+    await browser.switchWindow(/^宿泊予約.+$/);
+    await ReservePage.submitButton.waitForClickable();
 
-    ReservePage.setReserveDate('');
-    ReservePage.reserveTerm.setValue('');
-    ReservePage.headCount.setValue('');
-    ReservePage.username.setValue('テスト太郎');  // フォーカス移動
+    await ReservePage.setReserveDate('');
+    await ReservePage.reserveTerm.setValue('');
+    await ReservePage.headCount.setValue('');
+    await ReservePage.username.setValue('テスト太郎');  // フォーカス移動
 
-    expect(ReservePage.reserveDateMessage).toHaveText('このフィールドを入力してください。');
-    expect(ReservePage.reserveTermMessage).toHaveText('このフィールドを入力してください。');
-    expect(ReservePage.headCountMessage).toHaveText('このフィールドを入力してください。');
+    await expect(ReservePage.reserveDateMessage).toHaveText('このフィールドを入力してください。');
+    await expect(ReservePage.reserveTermMessage).toHaveText('このフィールドを入力してください。');
+    await expect(ReservePage.headCountMessage).toHaveText('このフィールドを入力してください。');
   });
 
-  it('不正な入力値でエラーとなること_小' , () => {
-    TopPage.open();
-    TopPage.goToPlansPage();
-    PlansPage.openPlanByTitle('お得な特典付きプラン');
-    browser.switchWindow(/^宿泊予約.+$/);
-    ReservePage.submitButton.waitForClickable();
+  it('不正な入力値でエラーとなること_小' , async () => {
+    await TopPage.open();
+    await TopPage.goToPlansPage();
+    await PlansPage.openPlanByTitle('お得な特典付きプラン');
+    await browser.switchWindow(/^宿泊予約.+$/);
+    await ReservePage.submitButton.waitForClickable();
 
     const today = DateTime.local().toFormat('yyyy/LL/dd');
 
-    ReservePage.setReserveDate(today);
-    ReservePage.reserveTerm.setValue('0');
-    ReservePage.headCount.setValue('0');
-    ReservePage.username.setValue('テスト太郎');  // フォーカス移動
+    await ReservePage.setReserveDate(today);
+    await ReservePage.reserveTerm.setValue('0');
+    await ReservePage.headCount.setValue('0');
+    await ReservePage.username.setValue('テスト太郎');  // フォーカス移動
 
-    expect(ReservePage.reserveDateMessage).toHaveText('翌日以降の日付を入力してください。');
-    expect(ReservePage.reserveTermMessage).toHaveText('1以上の値を入力してください。');
-    expect(ReservePage.headCountMessage).toHaveText('1以上の値を入力してください。');
+    await expect(ReservePage.reserveDateMessage).toHaveText('翌日以降の日付を入力してください。');
+    await expect(ReservePage.reserveTermMessage).toHaveText('1以上の値を入力してください。');
+    await expect(ReservePage.headCountMessage).toHaveText('1以上の値を入力してください。');
   });
 
-  it('不正な入力値でエラーとなること_大' , () => {
-    TopPage.open();
-    TopPage.goToPlansPage();
-    PlansPage.openPlanByTitle('お得な特典付きプラン');
-    browser.switchWindow(/^宿泊予約.+$/);
-    ReservePage.submitButton.waitForClickable();
+  it('不正な入力値でエラーとなること_大' , async () => {
+    await TopPage.open();
+    await TopPage.goToPlansPage();
+    await PlansPage.openPlanByTitle('お得な特典付きプラン');
+    await browser.switchWindow(/^宿泊予約.+$/);
+    await ReservePage.submitButton.waitForClickable();
 
     const after90 = DateTime.local().plus({ days: 91 }).toFormat('yyyy/LL/dd');
 
-    ReservePage.setReserveDate(after90);
-    ReservePage.reserveTerm.setValue('10');
-    ReservePage.headCount.setValue('10');
-    ReservePage.username.setValue('テスト太郎');  // フォーカス移動
+    await ReservePage.setReserveDate(after90);
+    await ReservePage.reserveTerm.setValue('10');
+    await ReservePage.headCount.setValue('10');
+    await ReservePage.username.setValue('テスト太郎');  // フォーカス移動
 
-    expect(ReservePage.reserveDateMessage).toHaveText('3ヶ月以内の日付を入力してください。');
-    expect(ReservePage.reserveTermMessage).toHaveText('9以下の値を入力してください。');
-    expect(ReservePage.headCountMessage).toHaveText('9以下の値を入力してください。');
+    await expect(ReservePage.reserveDateMessage).toHaveText('3ヶ月以内の日付を入力してください。');
+    await expect(ReservePage.reserveTermMessage).toHaveText('9以下の値を入力してください。');
+    await expect(ReservePage.headCountMessage).toHaveText('9以下の値を入力してください。');
   });
 
-  it('不正な入力値でエラーとなること_文字列' , () => {
-    TopPage.open();
-    TopPage.goToPlansPage();
-    PlansPage.openPlanByTitle('お得な特典付きプラン');
-    browser.switchWindow(/^宿泊予約.+$/);
-    ReservePage.submitButton.waitForClickable();
+  it('不正な入力値でエラーとなること_文字列' , async() => {
+    await TopPage.open();
+    await TopPage.goToPlansPage();
+    await PlansPage.openPlanByTitle('お得な特典付きプラン');
+    await browser.switchWindow(/^宿泊予約.+$/);
+    await ReservePage.submitButton.waitForClickable();
 
-    ReservePage.setReserveDate('12/3//345');
-    ReservePage.reserveTerm.setValue('a');  // 入力できない
-    ReservePage.headCount.setValue('a');  // 入力できない
-    ReservePage.username.setValue('テスト太郎');  // フォーカス移動
+    await ReservePage.setReserveDate('12/3//345');
+    await ReservePage.reserveTerm.setValue('a');  // 入力できない
+    await ReservePage.headCount.setValue('a');  // 入力できない
+    await ReservePage.username.setValue('テスト太郎');  // フォーカス移動
 
-    expect(ReservePage.reserveDateMessage).toHaveText('有効な値を入力してください。');
-    expect(ReservePage.reserveTermMessage).toHaveText('このフィールドを入力してください。');
-    expect(ReservePage.headCountMessage).toHaveText('このフィールドを入力してください。');
+    await expect(ReservePage.reserveDateMessage).toHaveText('有効な値を入力してください。');
+    await expect(ReservePage.reserveTermMessage).toHaveText('このフィールドを入力してください。');
+    await expect(ReservePage.headCountMessage).toHaveText('このフィールドを入力してください。');
   });
 
-  it('不正な入力値でエラーとなること_確定時_メール選択' , () => {
-    TopPage.open();
-    TopPage.goToPlansPage();
-    PlansPage.openPlanByTitle('お得な特典付きプラン');
-    browser.switchWindow(/^宿泊予約.+$/);
-    ReservePage.submitButton.waitForClickable();
+  it('不正な入力値でエラーとなること_確定時_メール選択' , async () => {
+    await TopPage.open();
+    await TopPage.goToPlansPage();
+    await PlansPage.openPlanByTitle('お得な特典付きプラン');
+    await browser.switchWindow(/^宿泊予約.+$/);
+    await ReservePage.submitButton.waitForClickable();
 
-    ReservePage.username.setValue('');
-    ReservePage.contact.selectByVisibleText('メールでのご連絡');
-    ReservePage.email.setValue('');
-    ReservePage.submit();
+    await ReservePage.username.setValue('');
+    await ReservePage.contact.selectByVisibleText('メールでのご連絡');
+    await ReservePage.email.setValue('');
+    await ReservePage.submit();
 
-    expect(ReservePage.usernameMessage).toHaveText('このフィールドを入力してください。');
-    expect(ReservePage.emailMessage).toHaveText('このフィールドを入力してください。');
+    await expect(ReservePage.usernameMessage).toHaveText('このフィールドを入力してください。');
+    await expect(ReservePage.emailMessage).toHaveText('このフィールドを入力してください。');
   });
 
-  it('不正な入力値でエラーとなること_確定時_電話選択' , () => {
-    TopPage.open();
-    TopPage.goToPlansPage();
-    PlansPage.openPlanByTitle('お得な特典付きプラン');
-    browser.switchWindow(/^宿泊予約.+$/);
-    ReservePage.submitButton.waitForClickable();
+  it('不正な入力値でエラーとなること_確定時_電話選択' , async () => {
+    await TopPage.open();
+    await TopPage.goToPlansPage();
+    await PlansPage.openPlanByTitle('お得な特典付きプラン');
+    await browser.switchWindow(/^宿泊予約.+$/);
+    await ReservePage.submitButton.waitForClickable();
 
-    ReservePage.username.setValue('');
-    ReservePage.contact.selectByVisibleText('電話でのご連絡');
-    ReservePage.tel.setValue('');
-    ReservePage.submit();
+    await ReservePage.username.setValue('');
+    await ReservePage.contact.selectByVisibleText('電話でのご連絡');
+    await ReservePage.tel.setValue('');
+    await ReservePage.submit();
 
-    expect(ReservePage.usernameMessage).toHaveText('このフィールドを入力してください。');
-    expect(ReservePage.telMessage).toHaveText('このフィールドを入力してください。');
+    await expect(ReservePage.usernameMessage).toHaveText('このフィールドを入力してください。');
+    await expect(ReservePage.telMessage).toHaveText('このフィールドを入力してください。');
   });
 
-  it('宿泊予約が完了すること_未ログイン_初期値' , () => {
-    TopPage.open();
-    TopPage.goToPlansPage();
-    PlansPage.openPlanByTitle('お得な特典付きプラン');
-    browser.switchWindow(/^宿泊予約.+$/);
-    ReservePage.submitButton.waitForClickable();
+  it('宿泊予約が完了すること_未ログイン_初期値' , async () => {
+    await TopPage.open();
+    await TopPage.goToPlansPage();
+    await PlansPage.openPlanByTitle('お得な特典付きプラン');
+    await browser.switchWindow(/^宿泊予約.+$/);
+    await ReservePage.submitButton.waitForClickable();
 
     const expectedStart = DateTime.local().plus({ days: 1 });
     const expectedEnd = DateTime.local().plus({ days: 2 });
@@ -199,35 +199,35 @@ describe('宿泊予約', () => {
     }
     const expectedTerm = `${expectedStart.toFormat('yyyy年L月d日')} 〜 ${expectedEnd.toFormat('yyyy年L月d日')} 1泊`
 
-    ReservePage.username.setValue('テスト太郎');
-    ReservePage.contact.selectByVisibleText('希望しない');
-    ReservePage.submit();
+    await ReservePage.username.setValue('テスト太郎');
+    await ReservePage.contact.selectByVisibleText('希望しない');
+    await ReservePage.submit();
 
-    expect(ConfirmPage.totalBill).toHaveText(expectedTotalBill);
-    expect(ConfirmPage.planName).toHaveText('お得な特典付きプラン');
-    expect(ConfirmPage.term).toHaveText(expectedTerm);
-    expect(ConfirmPage.headCount).toHaveText('1名様');
-    expect(ConfirmPage.plans).toHaveText('なし');
-    expect(ConfirmPage.username).toHaveText('テスト太郎様');
-    expect(ConfirmPage.contact).toHaveText('希望しない');
-    expect(ConfirmPage.comment).toHaveText('なし');
+    await expect(ConfirmPage.totalBill).toHaveText(expectedTotalBill);
+    await expect(ConfirmPage.planName).toHaveText('お得な特典付きプラン');
+    await expect(ConfirmPage.term).toHaveText(expectedTerm);
+    await expect(ConfirmPage.headCount).toHaveText('1名様');
+    await expect(ConfirmPage.plans).toHaveText('なし');
+    await expect(ConfirmPage.username).toHaveText('テスト太郎様');
+    await expect(ConfirmPage.contact).toHaveText('希望しない');
+    await expect(ConfirmPage.comment).toHaveText('なし');
 
-    ConfirmPage.confirm();
-    expect(ConfirmPage.modalMessage).toHaveText('ご来館、心よりお待ちしております。');
-    ConfirmPage.close();
-    expect(browser.waitUntil(() => browser.getWindowHandles().length === 1)).toBeTruthy();
+    await ConfirmPage.confirm();
+    await expect(ConfirmPage.modalMessage).toHaveText('ご来館、心よりお待ちしております。');
+    await ConfirmPage.close();
+    await expect(await browser.waitUntil(async () => (await browser.getWindowHandles()).length === 1)).toBeTruthy();
   });
 
-  it('宿泊予約が完了すること_ログイン' , () => {
-    TopPage.open();
-    TopPage.goToLoginPage();
-    LoginPage.email.setValue('ichiro@example.com');
-    LoginPage.password.setValue('password');
-    LoginPage.submit();
-    MyPage.goToPlansPage();
-    PlansPage.openPlanByTitle('プレミアムプラン');
-    browser.switchWindow(/^宿泊予約.+$/);
-    ReservePage.submitButton.waitForClickable();
+  it('宿泊予約が完了すること_ログイン' , async () => {
+    await TopPage.open();
+    await TopPage.goToLoginPage();
+    await LoginPage.email.setValue('ichiro@example.com');
+    await LoginPage.password.setValue('password');
+    await LoginPage.submit();
+    await MyPage.goToPlansPage();
+    await PlansPage.openPlanByTitle('プレミアムプラン');
+    await browser.switchWindow(/^宿泊予約.+$/);
+    await ReservePage.submitButton.waitForClickable();
 
     const expectedStart = DateTime.local().plus({ days: 90 });
     const expectedEnd = DateTime.local().plus({ days: 92 });
@@ -241,30 +241,30 @@ describe('宿泊予約', () => {
     }
     const expectedTerm = `${expectedStart.toFormat('yyyy年L月d日')} 〜 ${expectedEnd.toFormat('yyyy年L月d日')} 2泊`
 
-    ReservePage.reserveTerm.setValue('2');
-    ReservePage.headCount.setValue('4');
-    ReservePage.setBreakfastPlan(true);
-    ReservePage.setEarlyCheckInPlan(true);
-    ReservePage.setSightseeingPlan(false);
-    ReservePage.contact.selectByVisibleText('メールでのご連絡');
-    ReservePage.comment.setValue('あああ\n\nいいいいいいい\nうう');
-    ReservePage.reserveDate.setValue(expectedStart.toFormat('yyyy/LL/dd'));
-    ReservePage.submit();
+    await ReservePage.reserveTerm.setValue('2');
+    await ReservePage.headCount.setValue('4');
+    await ReservePage.setBreakfastPlan(true);
+    await ReservePage.setEarlyCheckInPlan(true);
+    await ReservePage.setSightseeingPlan(false);
+    await ReservePage.contact.selectByVisibleText('メールでのご連絡');
+    await ReservePage.comment.setValue('あああ\n\nいいいいいいい\nうう');
+    await ReservePage.reserveDate.setValue(expectedStart.toFormat('yyyy/LL/dd'));
+    await ReservePage.submit();
 
-    expect(ConfirmPage.totalBill).toHaveText(expectedTotalBill);
-    expect(ConfirmPage.planName).toHaveText('プレミアムプラン');
-    expect(ConfirmPage.term).toHaveText(expectedTerm);
-    expect(ConfirmPage.headCount).toHaveText('4名様');
-    expect(ConfirmPage.plans).toHaveTextContaining('朝食バイキング');
-    expect(ConfirmPage.plans).toHaveTextContaining('昼からチェックインプラン');
-    expect(ConfirmPage.plans).not.toHaveTextContaining('お得な観光プラン');
-    expect(ConfirmPage.username).toHaveText('山田一郎様');
-    expect(ConfirmPage.contact).toHaveText('メール：ichiro@example.com');
-    expect(ConfirmPage.comment).toHaveText('あああ\n\nいいいいいいい\nうう');
+    await expect(ConfirmPage.totalBill).toHaveText(expectedTotalBill);
+    await expect(ConfirmPage.planName).toHaveText('プレミアムプラン');
+    await expect(ConfirmPage.term).toHaveText(expectedTerm);
+    await expect(ConfirmPage.headCount).toHaveText('4名様');
+    await expect(ConfirmPage.plans).toHaveTextContaining('朝食バイキング');
+    await expect(ConfirmPage.plans).toHaveTextContaining('昼からチェックインプラン');
+    await expect(ConfirmPage.plans).not.toHaveTextContaining('お得な観光プラン');
+    await expect(ConfirmPage.username).toHaveText('山田一郎様');
+    await expect(ConfirmPage.contact).toHaveText('メール：ichiro@example.com');
+    await expect(ConfirmPage.comment).toHaveText('あああ\n\nいいいいいいい\nうう');
 
-    ConfirmPage.confirm();
-    expect(ConfirmPage.modalMessage).toHaveText('ご来館、心よりお待ちしております。');
-    ConfirmPage.close();
-    expect(browser.waitUntil(() => browser.getWindowHandles().length === 1)).toBeTruthy();
+    await ConfirmPage.confirm();
+    await expect(ConfirmPage.modalMessage).toHaveText('ご来館、心よりお待ちしております。');
+    await ConfirmPage.close();
+    await expect(await browser.waitUntil(async () => (await browser.getWindowHandles()).length === 1)).toBeTruthy();
   });
 });
