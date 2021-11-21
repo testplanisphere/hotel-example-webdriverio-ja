@@ -22,20 +22,20 @@ class SignupPage extends Page {
   get genderMessage() { return $('#gender ~ .invalid-feedback'); }
   get birthdayMessage() { return $('#birthday ~ .invalid-feedback'); }
 
-  setBirthday(birthday) {
-    browser.execute((input, value) => {
+  async setBirthday(birthday) {
+    await browser.execute((input, value) => {
       input.value = value;
-    }, this.birthday, birthday);
+    }, await this.birthday, birthday);
   }
 
-  setNotification(checked) {
-    if (this.notification.isSelected() !== checked) {
-      this.notification.click();
+  async setNotification(checked) {
+    if (await (await this.notification).isSelected() !== checked) {
+      await (await this.notification).click();
     }
   }
 
-  submit() {
-    this.submitButton.click();
+  async submit() {
+    await (await this.submitButton).click();
   }
 }
 

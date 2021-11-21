@@ -7,20 +7,20 @@ class IconPage extends Page {
   get submitButton() { return $('#icon-form > button'); }
   get iconMessage() { return $('#icon ~ .invalid-feedback'); }
 
-  submit() {
-    this.submitButton.click();
+  async submit() {
+    await (await this.submitButton).click();
   }
 
-  setZoom(value) {
-    browser.execute((input, value) => {
+  async setZoom(value) {
+    await browser.execute((input, value) => {
       input.value = value;
-    }, this.zoom, value);
+    }, await this.zoom, value);
   }
 
-  setColor(value) {
-    browser.execute((input, value) => {
+  async setColor(value) {
+    await browser.execute((input, value) => {
       input.value = value;
-    }, this.color, value);
+    }, await this.color, value);
   }
 }
 

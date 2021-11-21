@@ -14,13 +14,13 @@ class ConfirmPage extends Page {
   get modalMessage() { return $('#success-modal > div > div > .modal-body'); }
   get closeButton() { return $('#success-modal > div > div > div > button.btn-success'); }
 
-  confirm() {
-    this.confirmButton.click();
-    this.successModal.waitForDisplayed();
+  async confirm() {
+    await (await this.confirmButton).click();
+    await (await this.successModal).waitForDisplayed();
   }
 
-  close() {
-    this.closeButton.click();
+  async close() {
+    await (await this.closeButton).click();
   }
 }
 

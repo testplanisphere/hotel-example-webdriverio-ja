@@ -6,156 +6,156 @@ const SignupPage = require('../pageobjects/signup.page');
 const TopPage = require('../pageobjects/top.page');
 
 describe('マイページ', () => {
-  it('定義済みユーザの情報が表示されること_ichiro', () => {
-    TopPage.open();
-    TopPage.goToLoginPage();
-    LoginPage.email.setValue('ichiro@example.com');
-    LoginPage.password.setValue('password');
-    LoginPage.submit();
+  it('定義済みユーザの情報が表示されること_ichiro', async () => {
+    await TopPage.open();
+    await TopPage.goToLoginPage();
+    await LoginPage.email.setValue('ichiro@example.com');
+    await LoginPage.password.setValue('password');
+    await LoginPage.submit();
 
-    expect(MyPage.email).toHaveText('ichiro@example.com');
-    expect(MyPage.username).toHaveText('山田一郎');
-    expect(MyPage.rank).toHaveText('プレミアム会員');
-    expect(MyPage.address).toHaveText('東京都豊島区池袋');
-    expect(MyPage.tel).toHaveText('01234567891');
-    expect(MyPage.gender).toHaveText('男性');
-    expect(MyPage.birthday).toHaveText('未登録');
-    expect(MyPage.notification).toHaveText('受け取る');
+    await expect(MyPage.email).toHaveText('ichiro@example.com');
+    await expect(MyPage.username).toHaveText('山田一郎');
+    await expect(MyPage.rank).toHaveText('プレミアム会員');
+    await expect(MyPage.address).toHaveText('東京都豊島区池袋');
+    await expect(MyPage.tel).toHaveText('01234567891');
+    await expect(MyPage.gender).toHaveText('男性');
+    await expect(MyPage.birthday).toHaveText('未登録');
+    await expect(MyPage.notification).toHaveText('受け取る');
   });
 
-  it('定義済みユーザの情報が表示されること_sakura', () => {
-    TopPage.open();
-    TopPage.goToLoginPage();
-    LoginPage.email.setValue('sakura@example.com');
-    LoginPage.password.setValue('pass1234');
-    LoginPage.submit();
+  it('定義済みユーザの情報が表示されること_sakura', async () => {
+    await TopPage.open();
+    await TopPage.goToLoginPage();
+    await LoginPage.email.setValue('sakura@example.com');
+    await LoginPage.password.setValue('pass1234');
+    await LoginPage.submit();
 
-    expect(MyPage.email).toHaveText('sakura@example.com');
-    expect(MyPage.username).toHaveText('松本さくら');
-    expect(MyPage.rank).toHaveText('一般会員');
-    expect(MyPage.address).toHaveText('神奈川県横浜市鶴見区大黒ふ頭');
-    expect(MyPage.tel).toHaveText('未登録');
-    expect(MyPage.gender).toHaveText('女性');
-    expect(MyPage.birthday).toHaveText('2000年4月1日');
-    expect(MyPage.notification).toHaveText('受け取らない');
+    await expect(MyPage.email).toHaveText('sakura@example.com');
+    await expect(MyPage.username).toHaveText('松本さくら');
+    await expect(MyPage.rank).toHaveText('一般会員');
+    await expect(MyPage.address).toHaveText('神奈川県横浜市鶴見区大黒ふ頭');
+    await expect(MyPage.tel).toHaveText('未登録');
+    await expect(MyPage.gender).toHaveText('女性');
+    await expect(MyPage.birthday).toHaveText('2000年4月1日');
+    await expect(MyPage.notification).toHaveText('受け取らない');
   });
 
-  it('定義済みユーザの情報が表示されること_jun', () => {
-    TopPage.open();
-    TopPage.goToLoginPage();
-    LoginPage.email.setValue('jun@example.com');
-    LoginPage.password.setValue('pa55w0rd!');
-    LoginPage.submit();
+  it('定義済みユーザの情報が表示されること_jun', async () => {
+    await TopPage.open();
+    await TopPage.goToLoginPage();
+    await LoginPage.email.setValue('jun@example.com');
+    await LoginPage.password.setValue('pa55w0rd!');
+    await LoginPage.submit();
 
-    expect(MyPage.email).toHaveText('jun@example.com');
-    expect(MyPage.username).toHaveText('林潤');
-    expect(MyPage.rank).toHaveText('プレミアム会員');
-    expect(MyPage.address).toHaveText('大阪府大阪市北区梅田');
-    expect(MyPage.tel).toHaveText('01212341234');
-    expect(MyPage.gender).toHaveText('その他');
-    expect(MyPage.birthday).toHaveText('1988年12月17日');
-    expect(MyPage.notification).toHaveText('受け取らない');
+    await expect(MyPage.email).toHaveText('jun@example.com');
+    await expect(MyPage.username).toHaveText('林潤');
+    await expect(MyPage.rank).toHaveText('プレミアム会員');
+    await expect(MyPage.address).toHaveText('大阪府大阪市北区梅田');
+    await expect(MyPage.tel).toHaveText('01212341234');
+    await expect(MyPage.gender).toHaveText('その他');
+    await expect(MyPage.birthday).toHaveText('1988年12月17日');
+    await expect(MyPage.notification).toHaveText('受け取らない');
   });
 
-  it('定義済みユーザの情報が表示されること_yoshiki', () => {
-    TopPage.open();
-    TopPage.goToLoginPage();
-    LoginPage.email.setValue('yoshiki@example.com');
-    LoginPage.password.setValue('pass-pass');
-    LoginPage.submit();
+  it('定義済みユーザの情報が表示されること_yoshiki', async () => {
+    await TopPage.open();
+    await TopPage.goToLoginPage();
+    await LoginPage.email.setValue('yoshiki@example.com');
+    await LoginPage.password.setValue('pass-pass');
+    await LoginPage.submit();
 
-    expect(MyPage.email).toHaveText('yoshiki@example.com');
-    expect(MyPage.username).toHaveText('木村良樹');
-    expect(MyPage.rank).toHaveText('一般会員');
-    expect(MyPage.address).toHaveText('未登録');
-    expect(MyPage.tel).toHaveText('01298765432');
-    expect(MyPage.gender).toHaveText('未登録');
-    expect(MyPage.birthday).toHaveText('1992年8月31日');
-    expect(MyPage.notification).toHaveText('受け取る');
+    await expect(MyPage.email).toHaveText('yoshiki@example.com');
+    await expect(MyPage.username).toHaveText('木村良樹');
+    await expect(MyPage.rank).toHaveText('一般会員');
+    await expect(MyPage.address).toHaveText('未登録');
+    await expect(MyPage.tel).toHaveText('01298765432');
+    await expect(MyPage.gender).toHaveText('未登録');
+    await expect(MyPage.birthday).toHaveText('1992年8月31日');
+    await expect(MyPage.notification).toHaveText('受け取る');
   });
 
-  it('新規登録したユーザの情報が表示されること', () => {
-    TopPage.open();
-    TopPage.goToSignupPage();
-    SignupPage.email.setValue('new-user@example.com');
-    SignupPage.password.setValue('11111111');
-    SignupPage.passwordConfirmation.setValue('11111111');
-    SignupPage.username.setValue('田中花子');
-    SignupPage.rankNormal.click();
-    SignupPage.address.setValue('神奈川県横浜市港区');
-    SignupPage.tel.setValue('09876543211');
-    SignupPage.gender.selectByVisibleText('女性');
-    SignupPage.setBirthday('2000-01-01');
-    SignupPage.setNotification(false);
-    SignupPage.submit();
+  it('新規登録したユーザの情報が表示されること', async () => {
+    await TopPage.open();
+    await TopPage.goToSignupPage();
+    await SignupPage.email.setValue('new-user@example.com');
+    await SignupPage.password.setValue('11111111');
+    await SignupPage.passwordConfirmation.setValue('11111111');
+    await SignupPage.username.setValue('田中花子');
+    await SignupPage.rankNormal.click();
+    await SignupPage.address.setValue('神奈川県横浜市港区');
+    await SignupPage.tel.setValue('09876543211');
+    await SignupPage.gender.selectByVisibleText('女性');
+    await SignupPage.setBirthday('2000-01-01');
+    await SignupPage.setNotification(false);
+    await SignupPage.submit();
 
-    expect(MyPage.email).toHaveText('new-user@example.com');
-    expect(MyPage.username).toHaveText('田中花子');
-    expect(MyPage.rank).toHaveText('一般会員');
-    expect(MyPage.address).toHaveText('神奈川県横浜市港区');
-    expect(MyPage.tel).toHaveText('09876543211');
-    expect(MyPage.gender).toHaveText('女性');
-    expect(MyPage.birthday).toHaveText('2000年1月1日');
-    expect(MyPage.notification).toHaveText('受け取らない');
+    await expect(MyPage.email).toHaveText('new-user@example.com');
+    await expect(MyPage.username).toHaveText('田中花子');
+    await expect(MyPage.rank).toHaveText('一般会員');
+    await expect(MyPage.address).toHaveText('神奈川県横浜市港区');
+    await expect(MyPage.tel).toHaveText('09876543211');
+    await expect(MyPage.gender).toHaveText('女性');
+    await expect(MyPage.birthday).toHaveText('2000年1月1日');
+    await expect(MyPage.notification).toHaveText('受け取らない');
   });
 
-  it('アイコン設定で画像以外のファイルはエラーとなること', () => {
-    TopPage.open();
-    TopPage.goToLoginPage();
-    LoginPage.email.setValue('new-user@example.com');
-    LoginPage.password.setValue('11111111');
-    LoginPage.submit();
-    MyPage.iconLink.click();
+  it('アイコン設定で画像以外のファイルはエラーとなること', async () => {
+    await TopPage.open();
+    await TopPage.goToLoginPage();
+    await LoginPage.email.setValue('new-user@example.com');
+    await LoginPage.password.setValue('11111111');
+    await LoginPage.submit();
+    await MyPage.iconLink.click();
     const filePath = path.join(__dirname, '..', 'uploadfiles', 'dummy.txt');
-    IconPage.icon.setValue(filePath);
+    await IconPage.icon.setValue(filePath);
 
-    expect(IconPage.iconMessage).toHaveText('画像ファイルを選択してください。');
+    await expect(IconPage.iconMessage).toHaveText('画像ファイルを選択してください。');
   });
 
-  it('アイコン設定で10KBを越えるファイルはエラーとなること', () => {
-    TopPage.open();
-    TopPage.goToLoginPage();
-    LoginPage.email.setValue('new-user@example.com');
-    LoginPage.password.setValue('11111111');
-    LoginPage.submit();
-    MyPage.iconLink.click();
+  it('アイコン設定で10KBを越えるファイルはエラーとなること', async () => {
+    await TopPage.open();
+    await TopPage.goToLoginPage();
+    await LoginPage.email.setValue('new-user@example.com');
+    await LoginPage.password.setValue('11111111');
+    await LoginPage.submit();
+    await MyPage.iconLink.click();
     const filePath = path.join(__dirname, '..', 'uploadfiles', '240x240_12.png');
-    IconPage.icon.setValue(filePath);
+    await IconPage.icon.setValue(filePath);
 
-    expect(IconPage.iconMessage).toHaveText('ファイルサイズは10KB以下にしてください。');
+    await expect(IconPage.iconMessage).toHaveText('ファイルサイズは10KB以下にしてください。');
   });
 
-  it('設定したアイコンがマイページに表示されること', () => {
-    TopPage.open();
-    TopPage.goToLoginPage();
-    LoginPage.email.setValue('new-user@example.com');
-    LoginPage.password.setValue('11111111');
-    LoginPage.submit();
-    MyPage.iconLink.click();
+  it('設定したアイコンがマイページに表示されること', async () => {
+    await TopPage.open();
+    await TopPage.goToLoginPage();
+    await LoginPage.email.setValue('new-user@example.com');
+    await LoginPage.password.setValue('11111111');
+    await LoginPage.submit();
+    await MyPage.iconLink.click();
     const filePath = path.join(__dirname, '..', 'uploadfiles', '240x240_01.png');
-    IconPage.icon.setValue(filePath);
-    IconPage.setZoom(80);
-    IconPage.setColor('#000000');
-    IconPage.submit();
+    await IconPage.icon.setValue(filePath);
+    await IconPage.setZoom(80);
+    await IconPage.setColor('#000000');
+    await IconPage.submit();
 
-    expect(MyPage.iconImage).toExist();
-    // expect(MyPage.iconImage).toHaveAttribute('width', '70');
-    expect(MyPage.iconImage.getCSSProperty('backgroundColor').value).toBe('rgba(0,0,0,1)');
+    await expect(MyPage.iconImage).toExist();
+    // await expect(MyPage.iconImage).toHaveAttribute('width', '70');
+    await expect((await MyPage.iconImage.getCSSProperty('backgroundColor')).value).toBe('rgba(0,0,0,1)');
   });
 
-  it('新規登録したユーザが削除できること', () => {
-    TopPage.open();
-    TopPage.goToLoginPage();
-    LoginPage.email.setValue('new-user@example.com');
-    LoginPage.password.setValue('11111111');
-    LoginPage.submit();
-    MyPage.delete();
+  it('新規登録したユーザが削除できること', async () => {
+    await TopPage.open();
+    await TopPage.goToLoginPage();
+    await LoginPage.email.setValue('new-user@example.com');
+    await LoginPage.password.setValue('11111111');
+    await LoginPage.submit();
+    await MyPage.delete();
 
-    expect(browser.getAlertText()).toBe('退会すると全ての情報が削除されます。\nよろしいですか？');
-    browser.acceptAlert();
-    browser.pause(1000);
-    expect(browser.getAlertText()).toBe('退会処理を完了しました。ご利用ありがとうございました。');
-    browser.acceptAlert();
-    expect(browser).toHaveUrl('index.html', {containing: true});
+    await expect(await browser.getAlertText()).toBe('退会すると全ての情報が削除されます。\nよろしいですか？');
+    await browser.acceptAlert();
+    await browser.pause(1000);
+    await expect(await browser.getAlertText()).toBe('退会処理を完了しました。ご利用ありがとうございました。');
+    await browser.acceptAlert();
+    await expect(browser).toHaveUrl('index.html', {containing: true});
   });
 });
