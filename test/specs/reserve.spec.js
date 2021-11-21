@@ -39,7 +39,7 @@ describe('宿泊予約', () => {
     await expect(ReservePage.tel).toBeDisplayed();
     await expect(ReservePage.tel).toHaveValue('');
 
-    await browser.switchToFrame(ReservePage.roomFrame);
+    await browser.switchToFrame(await ReservePage.roomFrame);
     await expect(RoomPage.header).toHaveText('スタンダードツイン');
     await browser.switchToFrame(null);
   });
@@ -73,7 +73,7 @@ describe('宿泊予約', () => {
     await expect(ReservePage.tel).toBeDisplayed();
     await expect(ReservePage.tel).toHaveValue('01234567891');
 
-    await browser.switchToFrame(ReservePage.roomFrame);
+    await browser.switchToFrame(await ReservePage.roomFrame);
     await expect(RoomPage.header).toHaveText('プレミアムツイン');
     await browser.switchToFrame(null);
   });
