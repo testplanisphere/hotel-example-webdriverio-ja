@@ -153,7 +153,7 @@ describe('マイページ', () => {
 
     await expect(await browser.getAlertText()).toBe('退会すると全ての情報が削除されます。\nよろしいですか？');
     await browser.acceptAlert();
-    await browser.pause(1000);
+    await browser.pause(1000); // eslint-disable-line wdio/no-pause
     await expect(await browser.getAlertText()).toBe('退会処理を完了しました。ご利用ありがとうございました。');
     await browser.acceptAlert();
     await expect(browser).toHaveUrl('index.html', {containing: true});
