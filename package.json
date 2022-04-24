@@ -17,7 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "@wdio/cli": "7.19.1",
-    "@wdio/local-runner": "7.19.1",
+    "@wdio/local-runner": "7.19.5",
     "@wdio/mocha-framework": "7.19.1",
     "@wdio/spec-reporter": "7.19.1",
     "chromedriver": "^100.0.0",
