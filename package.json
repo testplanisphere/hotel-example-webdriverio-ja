@@ -23,7 +23,7 @@
     "chromedriver": "^101.0.0",
     "eslint": "^8.15.0",
     "eslint-plugin-wdio": "^7.19.4",
-    "luxon": "^2.3.2",
+    "luxon": "^2.4.0",
     "wdio-chromedriver-service": "^7.3.2"
   }
 }
