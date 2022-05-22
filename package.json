@@ -21,7 +21,7 @@
     "@wdio/mocha-framework": "7.19.7",
     "@wdio/spec-reporter": "7.19.7",
     "chromedriver": "^101.0.0",
-    "eslint": "^8.15.0",
+    "eslint": "^8.16.0",
     "eslint-plugin-wdio": "^7.19.4",
     "luxon": "^2.4.0",
     "wdio-chromedriver-service": "^7.3.2"
