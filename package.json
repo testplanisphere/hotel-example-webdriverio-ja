@@ -22,7 +22,7 @@
     "@wdio/spec-reporter": "7.20.3",
     "chromedriver": "^103.0.0",
     "eslint": "^8.19.0",
-    "eslint-plugin-wdio": "^7.19.4",
+    "eslint-plugin-wdio": "^7.20.6",
     "luxon": "^3.0.1",
     "wdio-chromedriver-service": "^7.3.2"
   }
