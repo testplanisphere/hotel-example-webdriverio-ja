@@ -20,7 +20,7 @@
     "@wdio/local-runner": "7.20.9",
     "@wdio/mocha-framework": "7.20.7",
     "@wdio/spec-reporter": "7.20.3",
-    "chromedriver": "^103.0.0",
+    "chromedriver": "^104.0.0",
     "eslint": "^8.21.0",
     "eslint-plugin-wdio": "^7.20.8",
     "luxon": "^3.0.1",
