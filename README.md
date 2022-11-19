@@ -1,3 +1,5 @@
+**This project is archived and read-only.**
+
 # hotel-example-webdriverio-ja
 
 [![webdriverio-ja](https://github.com/testplanisphere/hotel-example-webdriverio-ja/actions/workflows/test.yml/badge.svg)](https://github.com/testplanisphere/hotel-example-webdriverio-ja/actions/workflows/test.yml)
